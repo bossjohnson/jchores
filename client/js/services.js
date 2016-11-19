@@ -75,9 +75,9 @@ function DateService(Days, Months) {
     var todaysDate = now.getDate();
     var month = Months[now.getMonth()];
 
-        return {
-            today,
-            todaysDate,
-            month
-        };
+    return {
+        today,
+        todaysDate,
+        month
+    };
 }
