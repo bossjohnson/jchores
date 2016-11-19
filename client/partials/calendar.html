@@ -1,0 +1,16 @@
+<table class="calendar">
+    <thead>
+        <tr>
+            <th ng-repeat="day in Calendar.days">
+                {{day[0].toUpperCase() + day.slice(1)}}
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="row in Calendar.rows">
+            <td ng-repeat="day in row track by $index" class="calendar-day" ng-class="{today: day === Calendar.dateToday}">
+                {{day}}
+            </td>
+        </tr>
+    </tbody>
+</table>
