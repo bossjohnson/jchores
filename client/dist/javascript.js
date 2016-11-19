@@ -46,7 +46,6 @@ function HeaderCtrl($scope, DateService) {
     vm.monthName = DateService.monthName;
 }
 
-
 app.filter('capitalize', capitalize);
 
 function capitalize() {
@@ -154,3 +153,4 @@ function DateService() {
         calendarRows: calendarRows
     };
 }
+
