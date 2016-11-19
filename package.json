@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon server/server.js"
+    "start": "gulp && nodemon server/server.js"
   },
   "dependencies": {
     "body-parser": "^1.15.2",
@@ -14,7 +14,11 @@
   "description": "A chore tracking and organization app",
   "main": "server.js",
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-jshint": "^2.0.4",
+    "gulp-uglify": "^2.0.0",
+    "jshint": "^2.9.4"
   },
   "author": "Josh Newsom",
   "license": "ISC"

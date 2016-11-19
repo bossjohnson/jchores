@@ -7,5 +7,5 @@ app.config(appConfig);
 function appConfig($stateProvider, $mdThemingProvider) {
     // $stateProvider
     $mdThemingProvider.theme('default')
-        .primaryPalette('blue')
+        .primaryPalette('blue');
 }

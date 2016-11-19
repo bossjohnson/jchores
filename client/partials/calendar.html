@@ -2,13 +2,13 @@
     <thead>
         <tr>
             <th ng-repeat="day in Calendar.days">
-                {{day[0].toUpperCase() + day.slice(1)}}
+                {{day | capitalize}}
             </th>
         </tr>
     </thead>
     <tbody>
         <tr ng-repeat="row in Calendar.rows">
-            <td ng-repeat="day in row track by $index" class="calendar-day" ng-class="{today: day === Calendar.dateToday}">
+            <td ng-repeat="day in row track by $index" class="calendar-day" ng-class="{today: day === Calendar.todaysDate}">
                 {{day}}
             </td>
         </tr>
