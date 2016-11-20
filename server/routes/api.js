@@ -22,7 +22,6 @@ router.get('/chores/daily/:day', function(req, res) {
     client.query(queryString, [req.params.day], function(err, result) {
         if (err) console.error(err);
         else {
-            console.log(result);
             res.status(200).send(result.rows);
         }
     });

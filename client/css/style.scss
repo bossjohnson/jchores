@@ -26,11 +26,21 @@ table.calendar {
     height: 50%;
 
     td.calendar-day {
-      text-align: center;
-      border: 1px solid black;
-      padding: 10px;
-      &.today {
-        background-color: green;
-      }
+        text-align: center;
+        border: 1px solid black;
+        padding: 10px;
+
+        &.today {
+            background-color: green;
+        }
+    }
+}
+
+section.show-chores {
+    h2.congrats {
+        text-align: center;
+        background-image: url("/img/confetti.gif");
+        background-size: cover;
+        text-shadow: 0 5px 2px rgba(0,0,0,.3);
     }
 }

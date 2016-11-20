@@ -1,5 +1,7 @@
 <md-list>
-    <h2 ng-if="!Chore.chores.length">You do not have any chores schedule for today.</h3>
+    <h2 ng-if="!Chore.chores.length" class="congrats">
+      Congratulations!  You have finished all of your chores for today!
+    </h2>
     <md-list-item ng-repeat="chore in Chores.chores">
         <md-card>
             <md-card-content ng-bind="chore.name"></md-card-content>
