@@ -19,7 +19,8 @@ router.get('/chores/all', function(req, res) {
 
 router.get('/chores/daily/:day', function(req, res) {
     var queryString = queryStrings.getDailyChores;
-    client.query(queryString, [req.params.day], function(err, result) {
+    // client.query(queryString, [req.params.day], function(err, result) {
+    client.query(queryString, ['monday'], function(err, result) {
         if (err) console.error(err);
         else {
             res.status(200).send(result.rows);

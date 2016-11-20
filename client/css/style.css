@@ -1,3 +1,23 @@
+@keyframes slideOutLeft {
+  0% {
+    left: 0; }
+  100% {
+    left: -100vw; } }
+@keyframes slideOutRight {
+  0% {
+    right: 0; }
+  100% {
+    right: -100vw; } }
+@keyframes fadeOut {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+@keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
 * {
   box-sizing: border-box;
   margin: 0;
@@ -11,23 +31,46 @@ body {
 header md-header h1 {
   text-align: center; }
 
-table.calendar {
-  width: 98%;
-  border: 1px solid black;
-  border-collapse: collapse;
-  margin: 1%;
-  height: 50%; }
-  table.calendar td.calendar-day {
-    text-align: center;
-    border: 1px solid black;
-    padding: 10px; }
-    table.calendar td.calendar-day.today {
-      background-color: green; }
-
 section.show-chores h2.congrats {
   text-align: center;
   background-image: url("/img/confetti.gif");
   background-size: cover;
   text-shadow: 0 5px 2px rgba(0, 0, 0, 0.3); }
+  section.show-chores h2.congrats.ng-enter {
+    animation: fadeIn 2s; }
+section.show-chores md-list-item.chore.ng-leave {
+  animation: slideOutRight 0.5s, fadeOut 0.5s; }
+section.show-chores md-icon.chore-finished {
+  color: lightgreen;
+  transition: 0.25s; }
+  section.show-chores md-icon.chore-finished svg {
+    fill: inherit; }
+  section.show-chores md-icon.chore-finished:hover {
+    cursor: pointer;
+    color: green;
+    transition: 0.25s; }
+
+section.calendar {
+  height: 50vw;
+  width: 50vw;
+  position: relative;
+  border: 4px groove gray;
+  left: 25vw; }
+  section.calendar table.calendar {
+    border: 1px solid black;
+    border-collapse: collapse;
+    height: 100%;
+    width: 100%; }
+    section.calendar table.calendar td.calendar-day {
+      text-align: center;
+      border: 1px solid black;
+      padding: 10px;
+      width: 14.28571%;
+      transition: 0.15s; }
+      section.calendar table.calendar td.calendar-day.today {
+        background-color: #b1bfd6; }
+      section.calendar table.calendar td.calendar-day:hover {
+        background-color: #E8E8E8;
+        transition: 0.15s; }
 
 /*# sourceMappingURL=style.css.map */
