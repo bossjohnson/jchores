@@ -25,12 +25,12 @@
 
 <body>
 
-    <header ng-controller="HeaderCtrl as vm" ng-include="'partials/header.html'"></header>
+    <header ng-controller="HeaderCtrl as vm" ng-include="'views/partials/header.html'"></header>
 
     <main>
-        <section ng-include="'partials/show-chores.html'" ng-controller="ChoresCtrl as Chores"
+        <section ng-include="'views/partials/show-chores.html'" ng-controller="ChoresCtrl as Chores"
             class="show-chores"></section>
-        <section ng-include="'partials/calendar.html'" ng-controller="CalendarCtrl as Calendar"></section>
+        <section ng-include="'views/partials/calendar.html'" ng-controller="CalendarCtrl as Calendar"></section>
     </main>
 
 </body>
