@@ -28,8 +28,8 @@ router.get('/chores/all', function(req, res) {
 //     });
 // });
 
-router.get('/chores/daily/:day', function(req, res){
-    var queryString = queryStrings.getChoresByDay
+router.get('/chores/daily/:day', function(req, res) {
+    var queryString = queryStrings.getChoresByDay;
     client.query();
 });
 

@@ -25,11 +25,7 @@
 
 <body>
 
-    <header ng-controller="HeaderCtrl as vm">
-        <md-header>
-            <h1>Josh's chores for {{vm.today | capitalize}}, {{vm.monthName | capitalize}} {{vm.todaysDate}}</h1>
-        </md-header>
-    </header>
+    <header ng-controller="HeaderCtrl as vm" ng-include="'partials/header.html'"></header>
 
     <main>
         <section ng-include="'partials/show-chores.html'" ng-controller="ChoresCtrl as Chores"></section>

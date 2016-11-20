@@ -4,6 +4,8 @@ app.config(appConfig);
 
 // appConfig.$inject = [$stateProvider, $mdThemingProvider];
 
+appConfig.$inject = ['$stateProvider', '$mdThemingProvider'];
+
 function appConfig($stateProvider, $mdThemingProvider) {
     // $stateProvider
     $mdThemingProvider.theme('default')
