@@ -2,37 +2,37 @@
 <html lang="en" ng-app="J-Chores">
 
 <head>
-    <meta charset="UTF-8">
-    <title>J-Chores</title>
+  <meta charset="UTF-8">
+  <title>J-Chores</title>
 
-    <!-- AnuglarJS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+  <!-- AnuglarJS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
 
-    <!-- Angular Material Design -->
-    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+  <!-- Angular Material Design -->
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
 
-    <!-- ui-router -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js"></script>
+  <!-- ui-router -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js"></script>
 
-    <!-- My Stuff -->
-    <link rel="stylesheet" href="css/style.css">
-    <script src="dist/javascript.js" charset="utf-8"></script>
+  <!-- My Stuff -->
+  <link rel="stylesheet" href="css/style.css">
+  <script src="dist/javascript.js" charset="utf-8"></script>
 </head>
 
 <body>
 
-    <header ng-controller="HeaderCtrl as vm" ng-include="'views/partials/header.html'"></header>
+  <header ng-controller="HeaderCtrl as vm" ng-include="'views/partials/header.html'"></header>
 
-    <main>
-        <section ng-include="'views/partials/show-chores.html'" ng-controller="ChoresCtrl as Chores"
-            class="show-chores"></section>
-        <section ng-include="'views/partials/calendar.html'" ng-controller="CalendarCtrl as Calendar"
-            class="calendar"></section>
-    </main>
+  <main>
+    <section ng-include="'views/partials/show-chores.html'" ng-controller="ChoresCtrl as Chores"
+        class="show-chores"></section>
+    <section ng-include="'views/partials/calendar.html'" ng-controller="CalendarCtrl as Calendar"
+        class="calendar"></section>
+  </main>
 
 </body>
 

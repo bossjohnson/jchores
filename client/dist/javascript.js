@@ -1,8 +1,8 @@
 function appConfig(e,a){a.theme("default").primaryPalette("blue")}var app=angular.module("J-Chores",["ui.router","ngMaterial"]);app.config(appConfig),appConfig.$inject=["$stateProvider","$mdThemingProvider"];
-
 function ChoresService(e,r){function i(e){}var t=new Promise(function(i,t){e.get("/api/chores/daily/"+r.today).then(function(e){i(e.data)})});return{getChores:t,finish:i}}app.factory("ChoresService",ChoresService),ChoresService.$inject=["$http","DateService"];
 function DateService(){for(var e=["sunday","monday","tuesday","wednesday","thursday","friday","saturday"],a=["january","february","march","april","may","june","july","august","september","october","november","december"],t=new Date,r=e[t.getDay()],n=t.getDate(),s=t.getMonth(),u=a[s],y=t.getFullYear(),o=e[new Date(y,s).getDay()],d=e.indexOf(o),h=new Date(y,s+1,0).getDate(),D=[],m=1;m<=h;m++)D.push(m);var f=[],c=[];for(m=0;m<d;m++)c.push(null);for(m=1;m<=h;m++)c.length<7?c.push(m):(f.push(c),c=[m]);return f.push(c),{days:e,months:a,today:r,todaysDate:n,month:s,monthName:u,firstDayOfMonth:o,monthStartsOn:d,numberOfDays:h,daysInMonth:D,calendarRows:f}}app.factory("DateService",DateService);
-function capitalize(){return function(i){return i[0].toUpperCase()+i.slice(1)}}app.filter("capitalize",capitalize);
+
 function CalendarCtrl(a,t){var r=this;r.days=t.days,r.todaysDate=t.todaysDate,r.daysInMonth=t.daysInMonth,r.rows=t.calendarRows}app.controller("CalendarCtrl",CalendarCtrl),CalendarCtrl.$inject=["$scope","DateService"];
 function ChoresCtrl(e,t,o,r){var h=this;h.today=r.today,h.todaysDate=r.todaysDate,h.monthName=r.monthName,o.getChores.then(function(e){h.chores=e}),h.finish=function(e){var t=h.chores.indexOf(e);h.chores.splice(t,1)}}app.controller("ChoresCtrl",ChoresCtrl),ChoresCtrl.$inject=["$scope","$http","ChoresService","DateService"];
 function HeaderCtrl(e,t){var a=this;a.today=t.today,a.todaysDate=t.todaysDate,a.monthName=t.monthName}app.controller("HeaderCtrl",HeaderCtrl),HeaderCtrl.$inject=["$scope","DateService"];
+function capitalize(){return function(i){return i[0].toUpperCase()+i.slice(1)}}app.filter("capitalize",capitalize);

@@ -71,7 +71,7 @@ body {
   .calendar-day.today {
     background-color: #b1bfd6; }
   .calendar-day:hover {
-    background-color: #E8E8E8;
+    background-color: #e8e8e8;
     transition: .15s; }
 
 /*# sourceMappingURL=style.css.map */
