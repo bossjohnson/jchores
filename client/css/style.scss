@@ -2,87 +2,85 @@
 @import 'variables/animations';
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    width: 100vw;
-    height: 100vh;
-    position: relative;
+  height: 100vh;
+  position: relative;
+  width: 100vw;
 }
 
-header {}
+.show-chores {
+  md-header {
+    h1 {
+      text-align: center;
+    }
+  }
 
-section.show-chores {
-    md-header {
-        h1 {
-            text-align: center;
-        }
+  .congrats {
+    background-image: url('/img/confetti.gif');
+    background-size: cover;
+    text-align: center;
+    text-shadow: 0 5px 2px $standard-shadow;
+
+    &.ng-enter {
+      animation: fadeIn 2s;
+    }
+  }
+
+  .chore {
+    &.ng-leave {
+      animation: slideOutRight .5s, fadeOut .5s;
+    }
+  }
+
+  .chore-finished {
+    color: $lightgreen;
+    transition: .25s;
+
+    svg {
+      fill: inherit;
     }
 
-    h2.congrats {
-        text-align: center;
-        background-image: url("/img/confetti.gif");
-        background-size: cover;
-        text-shadow: 0 5px 2px rgba(0,0,0,.3);
-
-        &.ng-enter {
-            animation: fadeIn 2s;
-        }
+    &:hover {
+      color: $green;
+      cursor: pointer;
+      transition: .25s;
     }
-
-    md-list-item.chore {
-        &.ng-leave {
-            animation: slideOutRight 0.5s, fadeOut 0.5s;
-        }
-    }
-
-    md-icon.chore-finished {
-        color: lightgreen;
-        transition: 0.25s;
-
-        svg {
-            fill: inherit;
-        }
-
-        &:hover {
-            cursor: pointer;
-            color: green;
-            transition: 0.25s;
-        }
-    }
+  }
 }
 
-section.calendar {
-    height: 50vw;
-    width: 50vw;
-    position: relative;
-    border: 4px groove gray;
-    left: 25vw;
+.calendar {
+  border: 4px groove $gray;
+  height: 50vw;
+  left: 25vw;
+  position: relative;
+  width: 50vw;
+}
 
-    table.calendar {
-        border: 1px solid black;
-        border-collapse: collapse;
-        height: 100%;
-        width: 100%;
+.calendar-table {
+  border: 1px solid $black;
+  border-collapse: collapse;
+  height: 100%;
+  width: 100%;
+}
 
-        td.calendar-day {
-            text-align: center;
-            border: 1px solid black;
-            padding: 10px;
-            width: 1 / 7 * 100%;
-            transition: 0.15s;
+.calendar-day {
+  border: 1px solid $black;
+  padding: 10px;
+  text-align: center;
+  transition: .15s;
+  width: 1 / 7 * 100%;
 
-            &.today {
-                background-color: $today-color;
-            }
+  &.today {
+    background-color: $today-color;
+  }
 
-            &:hover {
-                background-color: $calendar-hover;
-                transition: 0.15s;
-            }
-        }
-    }
+  &:hover {
+    background-color: $calendar-hover;
+    transition: .15s;
+  }
 }

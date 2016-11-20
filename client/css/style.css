@@ -24,52 +24,54 @@
   padding: 0; }
 
 body {
-  width: 100vw;
   height: 100vh;
-  position: relative; }
+  position: relative;
+  width: 100vw; }
 
-section.show-chores md-header h1 {
+.show-chores md-header h1 {
   text-align: center; }
-section.show-chores h2.congrats {
-  text-align: center;
+.show-chores .congrats {
   background-image: url("/img/confetti.gif");
   background-size: cover;
+  text-align: center;
   text-shadow: 0 5px 2px rgba(0, 0, 0, 0.3); }
-  section.show-chores h2.congrats.ng-enter {
+  .show-chores .congrats.ng-enter {
     animation: fadeIn 2s; }
-section.show-chores md-list-item.chore.ng-leave {
-  animation: slideOutRight 0.5s, fadeOut 0.5s; }
-section.show-chores md-icon.chore-finished {
-  color: lightgreen;
-  transition: 0.25s; }
-  section.show-chores md-icon.chore-finished svg {
+.show-chores .chore.ng-leave {
+  animation: slideOutRight .5s, fadeOut .5s; }
+.show-chores .chore-finished {
+  color: #90ee90;
+  transition: .25s; }
+  .show-chores .chore-finished svg {
     fill: inherit; }
-  section.show-chores md-icon.chore-finished:hover {
+  .show-chores .chore-finished:hover {
+    color: #008000;
     cursor: pointer;
-    color: green;
-    transition: 0.25s; }
+    transition: .25s; }
 
-section.calendar {
+.calendar {
+  border: 4px groove #808080;
   height: 50vw;
-  width: 50vw;
+  left: 25vw;
   position: relative;
-  border: 4px groove gray;
-  left: 25vw; }
-  section.calendar table.calendar {
-    border: 1px solid black;
-    border-collapse: collapse;
-    height: 100%;
-    width: 100%; }
-    section.calendar table.calendar td.calendar-day {
-      text-align: center;
-      border: 1px solid black;
-      padding: 10px;
-      width: 14.28571%;
-      transition: 0.15s; }
-      section.calendar table.calendar td.calendar-day.today {
-        background-color: #b1bfd6; }
-      section.calendar table.calendar td.calendar-day:hover {
-        background-color: #E8E8E8;
-        transition: 0.15s; }
+  width: 50vw; }
+
+.calendar-table {
+  border: 1px solid #000;
+  border-collapse: collapse;
+  height: 100%;
+  width: 100%; }
+
+.calendar-day {
+  border: 1px solid #000;
+  padding: 10px;
+  text-align: center;
+  transition: .15s;
+  width: 14.28571%; }
+  .calendar-day.today {
+    background-color: #b1bfd6; }
+  .calendar-day:hover {
+    background-color: #E8E8E8;
+    transition: .15s; }
 
 /*# sourceMappingURL=style.css.map */
