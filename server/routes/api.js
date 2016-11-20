@@ -17,20 +17,15 @@ router.get('/chores/all', function(req, res) {
     });
 });
 
-// router.get('/chores/by/day', function(req, res) {
-//     var qs = queryStrings.getChoresByDay;
-//     client.query(qs, function(err, result) {
-//         if (err) console.error(err);
-//         else {
-//             console.log(result);
-//             res.status(200).send(result);
-//         }
-//     });
-// });
-
 router.get('/chores/daily/:day', function(req, res) {
-    var queryString = queryStrings.getChoresByDay;
-    client.query();
+    var queryString = queryStrings.getDailyChores;
+    client.query(queryString, [req.params.day], function(err, result) {
+        if (err) console.error(err);
+        else {
+            console.log(result);
+            res.status(200).send(result.rows);
+        }
+    });
 });
 
 module.exports = router;

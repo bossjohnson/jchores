@@ -6,5 +6,9 @@ function ChoresCtrl($scope, $http, ChoresService, DateService) {
     var vm = this;
 
     vm.today = DateService.today;
-    vm.chores = ChoresService[vm.today];
+    ChoresService
+        .then(function(chores) {
+            vm.chores = chores;
+        });
+    console.log('ChoresService:', ChoresService);
 }
