@@ -11,5 +11,6 @@ CREATE TABLE days (
 CREATE TABLE chores_days (
   chores_id integer REFERENCES chores(id),
   days_id integer REFERENCES days(id),
+  finished boolean DEFAULT false,
   PRIMARY KEY(chores_id, days_id)
 );
