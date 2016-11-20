@@ -28,9 +28,8 @@ body {
   height: 100vh;
   position: relative; }
 
-header md-header h1 {
+section.show-chores md-header h1 {
   text-align: center; }
-
 section.show-chores h2.congrats {
   text-align: center;
   background-image: url("/img/confetti.gif");

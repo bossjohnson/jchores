@@ -8,7 +8,7 @@
     </thead>
     <tbody>
         <tr ng-repeat="row in Calendar.rows">
-            <td ng-repeat="day in row track by $index" class="calendar-day" ng-class="{today: day === Calendar.todaysDate}">
+            <td ng-repeat="day in row track by $index" ng-class="{today: day === Calendar.todaysDate, 'calendar-day': day}">
                 {{day}}
             </td>
         </tr>

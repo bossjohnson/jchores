@@ -1,3 +1,8 @@
+<md-header>
+    <h1>
+      Josh's chores for {{Chores.today | capitalize}}, {{Chores.monthName | capitalize}} {{Chores.todaysDate}}
+    </h1>
+</md-header>
 <md-list>
     <h2 ng-if="!Chores.chores.length" class="congrats">
       Congratulations!  You have finished all of your chores for today!

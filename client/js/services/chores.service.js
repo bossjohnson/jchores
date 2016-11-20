@@ -12,7 +12,7 @@ function ChoresService($http, DateService) {
     });
 
     function finish(chore) {
-      
+
     }
 
     return {
