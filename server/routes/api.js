@@ -29,7 +29,16 @@ router.get('/chores/daily/:day', function(req, res) {
 });
 
 router.post('/chores/daily/:day/finish/:chore', function(req, res) {
-  
+  var queryString = '',
+    day = req.params.day,
+    chore = req.params.chore;
+  client.query(queryString, [day, chore], function(err, result) {
+    if (err) console.error(err);
+    else {
+      console.log('ok');
+    }
+  });
+  res.status(200).send();
 });
 
 module.exports = router;

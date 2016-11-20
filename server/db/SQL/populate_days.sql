@@ -1,5 +1,3 @@
-\c chores
-
 INSERT INTO days VALUES (0, 'sunday');
 INSERT INTO days VALUES (1, 'monday');
 INSERT INTO days VALUES (2, 'tuesday');

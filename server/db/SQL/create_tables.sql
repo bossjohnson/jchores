@@ -1,5 +1,3 @@
-\c chores
-
 CREATE TABLE chores (
   id serial PRIMARY KEY,
   name varchar(40)

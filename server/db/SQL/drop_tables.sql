@@ -1,5 +1,3 @@
-\c chores
-
-DROP TABLE chores_days;
-DROP TABLE days;
-DROP TABLE chores;
+DROP TABLE IF EXISTS chores_days;
+DROP TABLE IF EXISTS days;
+DROP TABLE IF EXISTS chores;

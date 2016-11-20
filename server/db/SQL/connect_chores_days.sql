@@ -1,5 +1,3 @@
-\c chores
-
 INSERT INTO chores_days VALUES (1, 0);
 INSERT INTO chores_days VALUES (1, 2);
 
