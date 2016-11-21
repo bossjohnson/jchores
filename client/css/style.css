@@ -74,4 +74,7 @@ body {
     background-color: #e8e8e8;
     transition: .15s; }
 
+.calendar-day-name {
+  text-decoration: underline; }
+
 /*# sourceMappingURL=style.css.map */

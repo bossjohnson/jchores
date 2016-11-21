@@ -1,16 +1,20 @@
-<table class="calendar-table">
-  <thead>
-    <tr>
-      <th ng-repeat="day in Calendar.days">
-        {{day | capitalize}}
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr ng-repeat="row in Calendar.rows">
-      <td ng-repeat="day in row track by $index" ng-class="{today: day === Calendar.todaysDate, 'calendar-day': day}">
-        {{day}}
-      </td>
-    </tr>
-  </tbody>
-</table>
+<section class="calendar">
+
+  <table class="calendar-table">
+    <thead>
+      <tr>
+        <th ng-repeat="day in Calendar.days">
+          <span class="calendar-day-name">{{day | capitalize}}</span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="row in Calendar.rows">
+        <td ng-repeat="day in row track by $index" ng-class="{today: day === Calendar.todaysDate, 'calendar-day': day}">
+          {{day}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</section>
