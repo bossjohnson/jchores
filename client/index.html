@@ -23,12 +23,15 @@
   <script src="dist/javascript.js" charset="utf-8"></script>
 </head>
 
-<body ng-cloak>
+<body ng-cloak ng-controller="AppCtrl as App">
 
   <header ng-controller="HeaderCtrl as Header" ng-include="'views/partials/header.html'"></header>
 
   <main style="position: relative">
-    <section ui-view class="animated-view"></section>
+    <section ui-view class="animated-view"
+      ng-class="{'slide-in-right': App.state === 'calendar',
+                 'slide-in-left': App.state === 'show-chores'}">
+    </section>
   </main>
 
 </body>

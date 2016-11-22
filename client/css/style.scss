@@ -95,10 +95,25 @@ body {
 
   &.ng-enter {
     position: absolute;
-    animation: slideInLeft .5s;
+
+    &.slide-in-right {
+      animation: slideInRight .5s;
+    }
+
+    &.slide-in-left {
+      animation: slideInLeft .5s;
+    }
   }
 
   &.ng-leave {
     animation: slideOutRight .5s;
+
+    &.slide-in-right {
+      animation: slideOutRight .5s;
+    }
+
+    &.slide-in-left {
+      animation: slideOutLeft .5s;
+    }
   }
 }
