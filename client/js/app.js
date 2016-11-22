@@ -9,16 +9,29 @@ function appConfig($stateProvider, $mdThemingProvider) {
     .primaryPalette('blue');
 
   $stateProvider
+  // .state('show-chores', {
+  //   url: '/show-chores',
+  //   templateUrl: 'views/show-chores.html',
+  //   controller: 'ChoresCtrl',
+  //   controllerAs: 'Chores'
+  // })
     .state('show-chores', {
       url: '/show-chores',
-      templateUrl: 'views/partials/show-chores.html',
-      controller: 'ChoresCtrl',
-      controllerAs: 'Chores'
+      views: {
+        '@': {
+          templateUrl: 'views/show-chores.html',
+          controller: 'ChoresCtrl',
+          controllerAs: 'Chores'
+        },
+        'expand@show-chores': {
+          templateUrl: 'views/partials/expanding-menu.html'
+        }
+      }
     })
     .state('calendar', {
       url: '/calendar',
-      templateUrl: 'views/partials/calendar.html',
+      templateUrl: 'views/calendar.html',
       controller: 'CalendarCtrl',
       controllerAs: 'Calendar'
-    })
+    });
 }

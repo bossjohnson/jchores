@@ -3,6 +3,11 @@
     left: 0; }
   100% {
     left: -100vw; } }
+@keyframes slideInLeft {
+  0% {
+    left: -100vw; }
+  100% {
+    left: 0; } }
 @keyframes slideOutRight {
   0% {
     right: 0; }
@@ -76,5 +81,14 @@ body {
 
 .calendar-day-name {
   text-decoration: underline; }
+
+.animated-view {
+  position: relative;
+  width: 100%; }
+  .animated-view.ng-enter {
+    position: absolute;
+    animation: slideInLeft .5s; }
+  .animated-view.ng-leave {
+    animation: slideOutRight .5s; }
 
 /*# sourceMappingURL=style.css.map */

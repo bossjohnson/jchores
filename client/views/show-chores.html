@@ -6,7 +6,7 @@
     </h1>
   </md-header>
   <md-list>
-    <h2 ng-if="!Chores.chores.length" class="congrats">
+    <h2 ng-if="Chores.chores.length === 0" class="congrats">
       Congratulations!  You have finished all of your chores for today!
     </h2>
     <md-list-item ng-repeat="chore in Chores.chores" class="chore">
@@ -20,5 +20,7 @@
       </md-card>
     </md-list-item>
   </md-list>
+
+  <div ui-view="expand"></div>
 
 </section>

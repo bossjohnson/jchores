@@ -88,3 +88,17 @@ body {
 .calendar-day-name {
   text-decoration: underline;
 }
+
+.animated-view {
+  position: relative;
+  width: 100%;
+
+  &.ng-enter {
+    position: absolute;
+    animation: slideInLeft .5s;
+  }
+
+  &.ng-leave {
+    animation: slideOutRight .5s;
+  }
+}
