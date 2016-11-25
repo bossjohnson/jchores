@@ -28,10 +28,11 @@
   <header ng-controller="HeaderCtrl as Header" ng-include="'views/partials/header.html'"></header>
 
   <main style="position: relative">
-    <section ui-view class="animated-view"
-      ng-class="{'slide-in-right': App.state === 'calendar',
-                 'slide-in-left': App.state === 'show-chores'}">
+
+    <section ui-view class="animated-view" ng-class="{'slide-right': App.slideDir === 'right',
+                 'slide-left': App.slideDir === 'left'}">
     </section>
+
   </main>
 
 </body>

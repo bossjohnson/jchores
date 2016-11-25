@@ -43,21 +43,24 @@ body {
 .show-chores .congrats {
   background-image: url("/img/confetti.gif");
   background-size: cover;
+  font-size: 2em;
   text-align: center;
   text-shadow: 0 5px 2px rgba(0, 0, 0, 0.3); }
   .show-chores .congrats.ng-enter {
     animation: fadeIn 2s; }
-.show-chores .chore.ng-leave {
-  animation: slideOutRight .5s, fadeOut .5s; }
-.show-chores .chore-finished {
-  color: #90ee90;
-  transition: .25s; }
-  .show-chores .chore-finished svg {
-    fill: inherit; }
-  .show-chores .chore-finished:hover {
-    color: #008000;
-    cursor: pointer;
-    transition: .25s; }
+.show-chores .chore-defer svg,
+.show-chores .chore-finished svg {
+  fill: inherit; }
+
+.chore {
+  width: 50vw; }
+  .chore.ng-leave {
+    animation: slideOutRight .5s, fadeOut .5s; }
+  .chore md-card {
+    text-align: center;
+    width: 100%; }
+    .chore md-card:hover {
+      background-color: #fafafa; }
 
 .calendar {
   border: 4px groove #808080;
@@ -92,15 +95,15 @@ body {
   width: 100%; }
   .animated-view.ng-enter {
     position: absolute; }
-    .animated-view.ng-enter.slide-in-right {
+    .animated-view.ng-enter.slide-right {
       animation: slideInRight .5s; }
-    .animated-view.ng-enter.slide-in-left {
+    .animated-view.ng-enter.slide-left {
       animation: slideInLeft .5s; }
   .animated-view.ng-leave {
-    animation: slideOutRight .5s; }
-    .animated-view.ng-leave.slide-in-right {
-      animation: slideOutRight .5s; }
-    .animated-view.ng-leave.slide-in-left {
+    position: absolute; }
+    .animated-view.ng-leave.slide-right {
       animation: slideOutLeft .5s; }
+    .animated-view.ng-leave.slide-left {
+      animation: slideOutRight .5s; }
 
 /*# sourceMappingURL=style.css.map */

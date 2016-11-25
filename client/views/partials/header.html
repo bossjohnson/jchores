@@ -1,8 +1,6 @@
 <md-nav-bar md-selected-nav-item="Header.currentNavItem" class="md-primary" aria-label="nav bar">
-  <md-nav-item md-nav-sref="show-chores" name="show-chores">
-    View Chores
-  </md-nav-item>
-  <md-nav-item md-nav-sref="calendar" name="calendar">
-    Calendar
+  <md-nav-item ng-repeat="state in App.states" name="{{state}}" md-nav-sref="{{state}}"
+      ng-click="$emit('nav', state)">
+    {{state | undash}}
   </md-nav-item>
 </md-nav-bar>

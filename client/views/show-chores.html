@@ -1,26 +1,45 @@
 <section class="show-chores">
+  <md-content>
+    <md-card>
 
-  <md-header>
-    <h1>
-      Josh's chores for {{Chores.today | capitalize}}, {{Chores.monthName | capitalize}} {{Chores.todaysDate}}
-    </h1>
-  </md-header>
-  <md-list>
-    <h2 ng-if="Chores.chores.length === 0" class="congrats">
-      Congratulations!  You have finished all of your chores for today!
-    </h2>
-    <md-list-item ng-repeat="chore in Chores.chores" class="chore">
-      <md-card>
-        <md-card-content layout="column">
-          <p ng-bind="chore.name"></p>
-          <md-icon md-svg-src="img/icons/ic_check_circle_black_24px.svg" class="chore-finished"
-              ng-click="Chores.finish(chore)">
-          </md-icon>
-        </md-card-content>
-      </md-card>
-    </md-list-item>
-  </md-list>
+      <md-card-header>
 
-  <div ui-view="expand"></div>
+        <md-card-title ng-if="Chores.chores.length" layout="row" layout-align="center">
+          <span class="md-title">Josh's chores for {{Chores.today | capitalize}}, {{Chores.monthName | capitalize}} {{Chores.todaysDate}}</span>
+        </md-card-title>
 
+        <md-card-title ng-if="Chores.chores.length === 0" class="congrats" layout="row" layout-align="center">
+          <span>Congratulations!  You have finished all of your chores for today!</span>
+        </md-card-title>
+
+      </md-card-header>
+
+      <md-card-content ng-if="Chores.chores.length">
+        <md-list class="chores-list" layout="column" layout-align="start center">
+
+          <md-list-item ng-repeat="chore in Chores.chores" class="chore">
+            <md-card>
+              <md-card-content layout="column">
+                <span ng-bind="chore.name"></span>
+              </md-card-content>
+              <md-card-actions ng-if="Chores.chores.length">
+                <md-button class="md-raised md-primary md-hue-2" ng-click="Chores.finish(chore)">
+                  <md-icon md-svg-src="img/icons/ic_check_circle_black_24px.svg" class="chore-finished">
+                  </md-icon>
+                  <span>Finish</span>
+                </md-button>
+                <md-button class="md-raised md-warn md-hue-2" ng-click="Chores.defer(chore)">
+                  <md-icon md-svg-src="img/icons/ic_watch_later_black_24px.svg" class="chore-defer">
+                  </md-icon>
+                  Defer
+                </md-button>
+              </md-card-actions>
+            </md-card>
+          </md-list-item>
+
+        </md-list>
+      </md-card-content>
+
+    </md-card>
+  </md-content>
 </section>

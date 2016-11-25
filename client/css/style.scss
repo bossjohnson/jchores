@@ -23,6 +23,7 @@ body {
   .congrats {
     background-image: url('/img/confetti.gif');
     background-size: cover;
+    font-size: 2em;
     text-align: center;
     text-shadow: 0 5px 2px $standard-shadow;
 
@@ -31,24 +32,27 @@ body {
     }
   }
 
-  .chore {
-    &.ng-leave {
-      animation: slideOutRight .5s, fadeOut .5s;
-    }
-  }
-
+  .chore-defer,
   .chore-finished {
-    color: $lightgreen;
-    transition: .25s;
-
     svg {
       fill: inherit;
     }
+  }
+}
+
+.chore {
+  width: 50vw;
+
+  &.ng-leave {
+    animation: slideOutRight .5s, fadeOut .5s;
+  }
+
+  md-card {
+    text-align: center;
+    width: 100%;
 
     &:hover {
-      color: $green;
-      cursor: pointer;
-      transition: .25s;
+      background-color: $chore-card-hover;
     }
   }
 }
@@ -96,24 +100,24 @@ body {
   &.ng-enter {
     position: absolute;
 
-    &.slide-in-right {
+    &.slide-right {
       animation: slideInRight .5s;
     }
 
-    &.slide-in-left {
+    &.slide-left {
       animation: slideInLeft .5s;
     }
   }
 
   &.ng-leave {
-    animation: slideOutRight .5s;
+    position: absolute;
 
-    &.slide-in-right {
-      animation: slideOutRight .5s;
+    &.slide-right {
+      animation: slideOutLeft .5s;
     }
 
-    &.slide-in-left {
-      animation: slideOutLeft .5s;
+    &.slide-left {
+      animation: slideOutRight .5s;
     }
   }
 }

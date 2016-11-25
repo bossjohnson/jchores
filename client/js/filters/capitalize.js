@@ -1,7 +1,9 @@
-app.filter('capitalize', capitalize);
+(function() {
+  app.filter('capitalize', capitalize);
 
-function capitalize() {
+  function capitalize() {
     return function(input) {
-        return input[0].toUpperCase() + input.slice(1);
+      return input[0].toUpperCase() + input.slice(1);
     };
-}
+  }
+}());

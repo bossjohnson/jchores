@@ -12,5 +12,9 @@
       vm.monthName = DateService.monthName;
       vm.currentNavItem = $state.current.name;
     }, 0);
+
+    $scope.$on('$stateChangeSuccess', function() {
+      vm.state = $state.current.name;
+    });
   }
 }());
