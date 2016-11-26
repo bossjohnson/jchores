@@ -19,7 +19,6 @@
         url: '/edit-chores',
         templateUrl: 'views/edit-chores.html',
         controller: 'ChoresCtrl',
-        controllerAs: 'ChoresCtrl',
         controllerAs: 'Chores'
       })
       .state('calendar', {

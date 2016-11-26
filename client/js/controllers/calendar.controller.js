@@ -7,6 +7,7 @@
     var vm = this;
 
     vm.days = DateService.days;
+    vm.monthName = DateService.monthName;
     vm.todaysDate = DateService.todaysDate;
     vm.daysInMonth = DateService.daysInMonth;
     vm.rows = DateService.calendarRows;

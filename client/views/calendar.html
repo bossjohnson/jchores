@@ -3,6 +3,11 @@
   <table class="calendar-table">
     <thead>
       <tr>
+        <th colspan="7">
+          <h2 ng-bind="Calendar.monthName | capitalize"></h2>
+        </th>
+      </tr>
+      <tr>
         <th ng-repeat="day in Calendar.days">
           <span class="calendar-day-name">{{day | capitalize}}</span>
         </th>

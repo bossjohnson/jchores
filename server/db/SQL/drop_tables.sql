@@ -5,3 +5,6 @@ DROP TABLE IF EXISTS days;
 
 
 DROP TABLE IF EXISTS chores;
+
+
+DROP TABLE IF EXISTS deferred_chores;
