@@ -1,0 +1,16 @@
+<md-dialog>
+  <md-toolbar class="md-primary md-hue-1" layout="row" layout-align="center center" layout-padding>
+    <h1>{{clicked | capitalize}}, {{monthName | capitalize}} {{date}}</h1>
+  </md-toolbar>
+
+  <md-dialog-content class="md-dialog-content">
+    <form layout="column">
+      <md-input-container>
+        <input type="text" placeholder="Task">
+      </md-input-container>
+      <md-button class="md-raised md-primary">
+        Add Task
+      </md-button>
+    </form>
+  </md-dialog-content>
+</md-dialog>

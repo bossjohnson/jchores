@@ -15,7 +15,8 @@
     </thead>
     <tbody>
       <tr ng-repeat="row in Calendar.rows">
-        <td ng-repeat="day in row track by $index" ng-class="{today: day === Calendar.todaysDate, 'calendar-day': day}">
+        <td ng-repeat="day in row track by $index" ng-class="{today: day === Calendar.todaysDate, 'calendar-day': day}"
+          ng-click="Calendar.openDialog(day)">
           {{day}}
         </td>
       </tr>

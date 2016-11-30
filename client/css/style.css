@@ -85,6 +85,7 @@ body {
     background-color: #b1bfd6; }
   .calendar-day:hover {
     background-color: #e8e8e8;
+    cursor: pointer;
     transition: .15s; }
 
 .calendar-day-name {

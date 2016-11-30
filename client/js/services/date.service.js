@@ -4,47 +4,45 @@
   function DateService() {
 
     var days = [
-      'sunday',
-      'monday',
-      'tuesday',
-      'wednesday',
-      'thursday',
-      'friday',
-      'saturday'
-    ];
+        'sunday',
+        'monday',
+        'tuesday',
+        'wednesday',
+        'thursday',
+        'friday',
+        'saturday'
+      ],
+      months = [
+        'january',
+        'february',
+        'march',
+        'april',
+        'may',
+        'june',
+        'july',
+        'august',
+        'september',
+        'october',
+        'november',
+        'december'
+      ],
+      now = new Date(),
+      today = days[now.getDay()],
+      todaysDate = now.getDate(),
+      month = now.getMonth(),
+      monthName = months[month],
+      year = now.getFullYear(),
+      firstDayOfMonth = days[new Date(year, month).getDay()],
+      monthStartsOn = days.indexOf(firstDayOfMonth),
+      numberOfDays = new Date(year, month + 1, 0).getDate(),
+      daysInMonth = [];
 
-    var months = [
-      'january',
-      'february',
-      'march',
-      'april',
-      'may',
-      'june',
-      'july',
-      'august',
-      'september',
-      'october',
-      'november',
-      'december'
-    ];
-
-    var now = new Date();
-    var today = days[now.getDay()];
-    var todaysDate = now.getDate();
-    var month = now.getMonth();
-    var monthName = months[month];
-    var year = now.getFullYear();
-    var firstDayOfMonth = days[new Date(year, month).getDay()];
-    var monthStartsOn = days.indexOf(firstDayOfMonth);
-    var numberOfDays = new Date(year, month + 1, 0).getDate();
-
-    var daysInMonth = [];
     for (var i = 1; i <= numberOfDays; i++) {
       daysInMonth.push(i);
     }
 
-    var calendarRows = [];
-    var row = [];
+    var calendarRows = [],
+      row = [];
     for (i = 0; i < monthStartsOn; i++) {
       row.push(null);
     }
