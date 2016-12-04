@@ -1,4 +1,5 @@
-<md-nav-bar md-selected-nav-item="Header.currentNavItem" class="md-primary" aria-label="nav bar">
+<md-nav-bar md-selected-nav-item="Header.currentNavItem" class="md-primary" aria-label="nav bar"
+    layout="row" layout-align="center">
   <md-nav-item ng-repeat="state in App.states" name="{{state}}" md-nav-sref="{{state}}"
       ng-click="$emit('nav', state)">
     {{state | undash}}

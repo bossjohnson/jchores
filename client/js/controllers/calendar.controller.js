@@ -12,8 +12,9 @@
     vm.daysInMonth = DateService.daysInMonth;
     vm.rows = DateService.calendarRows;
 
-    vm.openDialog = function(day) {
+    vm.openDialog = function(day, row) {
       var clickedDay = document.querySelectorAll('.calendar-day')[day - 1];
+      // console.log('clickedDay:', clickedDay);
       $mdDialog.show({
         templateUrl: 'views/partials/add_calendar_task.html',
         controller: dialogController,
@@ -25,8 +26,8 @@
       dialogController.$inject = ['$scope', '$mdDialog'];
 
       function dialogController($scope, $mdDialog) {
-        console.log(DateService.monthStartsOn);
-        $scope.clicked = vm.days[day % 7 + DateService.monthStartsOn - 1];
+        var index = row.indexOf(day);
+        $scope.clicked = vm.days[index];
         $scope.monthName = vm.monthName;
         $scope.date = day;
         console.log($scope);
