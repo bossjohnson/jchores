@@ -6,7 +6,6 @@ var express = require('express'),
   app = express(),
   server = app.listen(3000);
 
-
 app.use(express.static(path.join(__dirname + './../client')));
 app.use(bodyParser.urlencoded({
   extended: false

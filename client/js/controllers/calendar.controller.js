@@ -14,7 +14,7 @@
 
     vm.openDialog = function(day, row) {
       var clickedDay = document.querySelectorAll('.calendar-day')[day - 1];
-      // console.log('clickedDay:', clickedDay);
+
       $mdDialog.show({
         templateUrl: 'views/partials/add_calendar_task.html',
         controller: dialogController,
