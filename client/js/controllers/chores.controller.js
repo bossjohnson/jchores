@@ -32,6 +32,12 @@
       var index = vm.allChores[chore].indexOf(day);
       if (index < 0) vm.allChores[chore].push(day);
       else vm.allChores[chore].splice(index, 1);
+
+      console.log('chore, day:', chore, day);
+
+      $http.post('/api/chores/' + chore + '/toggle/' + day).then(function(data) {
+        console.log(data);
+      });
     };
   }
 }());

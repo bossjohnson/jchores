@@ -11,7 +11,6 @@ exports.getDailyChores = function(req, res) {
   client.query(query, [req.params.day], function(err, result) {
     if (err) {
       console.error(err);
-      res.status(500).send(err);
     } else {
       res.status(200).send(result.rows);
     }
@@ -21,7 +20,12 @@ exports.getDailyChores = function(req, res) {
 exports.getAllChores = function(req, res) {
   var query = fs.readFileSync(queriesDir + 'get-all-chores.sql').toString();
   client.query(query, function(err, result) {
-    res.send(result.rows);
+    if (err) {
+      console.error(err);
+      res.status(500).send(err);
+    } else {
+      res.send(result.rows);
+    }
   });
 };
 
@@ -35,6 +39,22 @@ exports.finishChore = function(req, res) {
       console.error(err);
       res.status(500).send(err);
     } else {
+      res.status(200).send(result);
+    }
+  });
+};
+
+exports.toggleChoreDay = function(req, res) {
+  var query = fs.readFileSync(queriesDir + 'toggle-chore-day.sql').toString(),
+    chore = req.params.chore,
+    day = req.params.day;
+
+  client.query(query, [chore, day], function(err, result) {
+    if (err) {
+      console.error(err);
+      res.status(500).send(err);
+    } else {
+      console.log(result);
       res.status(200).send(result);
     }
   });
