@@ -12,9 +12,10 @@
     vm.monthName = DateService.monthName;
     vm.addChores = {};
 
-    ChoresService.getChores().then(function(chores) {
-      vm.chores = chores.data;
-    });
+    ChoresService.getChores()
+      .then(function(chores) {
+        vm.chores = chores.data;
+      });
 
     ChoresService.allChores.then(function(chores) {
       vm.allChores = chores;

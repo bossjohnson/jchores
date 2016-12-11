@@ -5,7 +5,9 @@ var mongoose = require('mongoose'),
   host = process.env.DB_HOSTNAME || 'localhost',
   dbName = process.env.DB_NAME || 'chores',
   connectString = 'mongodb://' + host + '/' + dbName,
-  User = require('./schema/users');
+  User = require('./schema/users'),
+  Chore = require('./schema/chores'),
+  Task = require('./schema/tasks');
 
 mongoose.connect(connectString);
 
