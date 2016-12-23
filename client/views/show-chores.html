@@ -23,16 +23,19 @@
                 <span ng-bind="chore.name"></span>
               </md-card-content>
               <md-card-actions ng-if="Chores.chores.length">
+
                 <md-button class="md-raised md-primary md-hue-2" ng-click="Chores.finish(chore)">
                   <md-icon md-svg-src="img/icons/ic_check_circle_black_24px.svg" class="chore-finished">
                   </md-icon>
                   <span>Finish</span>
                 </md-button>
+
                 <md-button class="md-raised md-warn md-hue-2" ng-click="Chores.defer(chore)">
                   <md-icon md-svg-src="img/icons/ic_watch_later_black_24px.svg" class="chore-defer">
                   </md-icon>
-                  Defer
+                  <span>Defer</span>
                 </md-button>
+
               </md-card-actions>
             </md-card>
           </md-list-item>

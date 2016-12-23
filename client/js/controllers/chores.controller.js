@@ -1,44 +1,52 @@
 (function() {
   app.controller('ChoresCtrl', ChoresCtrl);
 
-  ChoresCtrl.$inject = ['$scope', '$http', 'ChoresService', 'DateService'];
+  ChoresCtrl.$inject = ['$scope', '$http', 'ChoresService', 'DateService', '$resource'];
 
-  function ChoresCtrl($scope, $http, ChoresService, DateService) {
+  function ChoresCtrl($scope, $http, ChoresService, DateService, $resource) {
     var vm = this;
+
+    vm.view = {
+      addNewChore: false
+    };
+    vm.chores = [];
 
     vm.days = DateService.days;
     vm.today = DateService.today;
     vm.todaysDate = DateService.todaysDate;
     vm.monthName = DateService.monthName;
-    vm.addChores = {};
 
-    ChoresService.getChores()
-      .then(function(chores) {
-        vm.chores = chores.data;
-      });
 
-    ChoresService.allChores.then(function(chores) {
-      vm.allChores = chores;
-    });
+    vm.allChores = ChoresService.getAllChores();
 
     vm.finish = function(chore) {
-      var index = vm.chores.indexOf(chore),
-        dayId = DateService.days.indexOf(vm.today);
-
+      var index = vm.chores.indexOf(chore);
       vm.chores.splice(index, 1);
-      $http.post('/api/chores/daily/' + dayId + '/finish/' + chore.id);
+      chore.finished = new Date();
+      chore.$save();
     };
 
     vm.checkToggle = function(chore, day) {
-      var index = vm.allChores[chore].indexOf(day);
-      if (index < 0) vm.allChores[chore].push(day);
-      else vm.allChores[chore].splice(index, 1);
+      var index = chore.days.indexOf(day);
 
-      console.log('chore, day:', chore, day);
+      if (index < 0) {
+        chore.days.push(day);
+      } else {
+        chore.days.splice(index, 1);
+      }
+      chore.$save();
+    };
 
-      $http.post('/api/chores/' + chore + '/toggle/' + day).then(function(data) {
-        console.log(data);
-      });
+    vm.addNew = function() {
+      var chore = ChoresService.newChore();
+      chore.$save();
+      vm.allChores.push(chore);
+    };
+
+    vm.deleteChore = function(chore) {
+      var index = vm.allChores.indexOf(chore);
+      vm.allChores.splice(index, 1);
+      chore.$delete();
     };
   }
 }());

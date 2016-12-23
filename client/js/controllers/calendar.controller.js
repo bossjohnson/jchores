@@ -30,7 +30,6 @@
         $scope.clicked = vm.days[index];
         $scope.monthName = vm.monthName;
         $scope.date = day;
-        console.log($scope);
       }
     };
   }

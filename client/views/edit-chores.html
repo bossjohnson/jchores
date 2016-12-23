@@ -9,21 +9,28 @@
       </md-card-header>
 
       <md-card-content>
-        <div layout="row" layout-align="space-around center" flex ng-repeat="(chore, days) in Chores.allChores">
-          <md-input-container>
-            <input type="text" placeholder="Chore Name" value="{{chore}}">
+        <div layout="row" layout-align="space-around center" flex ng-repeat="chore in Chores.allChores">
+          <md-button class="md-fab md-mini md-warn" ng-click="Chores.deleteChore(chore)" aria-label="delete chore">
+            <md-icon md-svg-icon="../img/icons/delete_forever_white.svg"></md-icon>
+          </md-button>
+          <md-input-container layout="row" layout-align="center center">
+            <input type="text" placeholder="Chore Name" ng-model="chore.name" ng-model-options="{debounce: 100}"
+                ng-change="chore.$save()">
           </md-input-container>
 
           <div layout="column" layout-align="space-between center" ng-repeat="day in Chores.days"
               flex>
             <h5 ng-bind="day | capitalize"></h5>
-            <md-checkbox ng-checked="Chores.allChores[chore].indexOf(day) >= 0" aria-label="{{day}}"
-                ng-click="Chores.checkToggle(chore, day)"></md-checkbox>
+            <md-checkbox ng-checked="chore.days.indexOf(day) >= 0" aria-label="{{day}}" ng-click="Chores.checkToggle(chore, day)"></md-checkbox>
           </div>
         </div>
 
         <div layout="row" layout-align="center">
-          <md-button class="md-raised md-primary">Add</md-button>
+          <md-button class="md-raised md-primary" ng-click="Chores.addNew()">
+            <md-icon md-svg-icon="../img/icons/save_white.svg"></md-icon>
+            <span>Add</span>
+          </md-button>
+
         </div>
       </md-card-content>
 

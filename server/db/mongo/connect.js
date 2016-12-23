@@ -12,5 +12,5 @@ var mongoose = require('mongoose'),
 mongoose.connect(connectString);
 
 db.on('open', function() {
-  console.log('Connected to %s', connectString);
+  console.info('Connected to %s', connectString);
 });

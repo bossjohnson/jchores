@@ -7,24 +7,53 @@ exports.getDailyChores = function(req, res) {
   var day = req.params.day;
 
   Chore.find({
-    days: {
-      $in: [day]
-    }
-  }, function(err, chores) {
-    if (err) res.status(500).send(err);
-    else res.status(200).send(chores);
-  });
-
+      days: {
+        $in: [day]
+      },
+      $or: [{
+        finished: {
+          $exists: false
+        }
+      }, {
+        finished: false
+      }]
+    },
+    function(err, chores) {
+      if (err) {
+        res.status(500).send(err);
+        console.error(err);
+      } else res.status(200).send(chores);
+    });
 };
 
 exports.getAllChores = function(req, res) {
-
+  Chore.find(function(err, chores) {
+    if (err) res.status(500).send(err);
+    else res.status(200).send(chores);
+  });
 };
 
-exports.finishChore = function(req, res) {
+exports.saveChore = function(req, res) {
+  var chore = req.body;
 
+  Chore.findById(chore._id, function(err, _chore) {
+    for (var key in chore) {
+      if (key === '__v') continue;
+      _chore[key] = chore[key];
+    }
+    if (!_chore) _chore = new Chore();
+    _chore.save(function(err) {
+      if (err) console.error(err);
+    });
+    res.status(200).send(_chore);
+  });
 };
 
-exports.toggleChoreDay = function(req, res) {
-
+exports.deleteChore = function(req, res) {
+  Chore.findByIdAndRemove(req.query.choreId, function(err, deleted) {
+    if (err) {
+      console.error(err);
+      res.status(500).send();
+    } else res.status(200).send();
+  });
 };

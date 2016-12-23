@@ -1,37 +1,32 @@
 (function() {
   app.factory('ChoresService', ChoresService);
 
-  ChoresService.$inject = ['$http', 'DateService'];
+  ChoresService.$inject = ['$http', 'DateService', 'ChoresResource'];
 
-  function ChoresService($http, DateService) {
+
+  function ChoresService($http, DateService, ChoresResource) {
+    var Chore = ChoresResource;
 
     var getChores = function() {
-      return $http.get('/api/chores/daily/' + DateService.today);
+      return Chore.query(function(chores) {
+        return chores;
+      });
     };
 
     var getAllChores = function() {
-      return $http.get('/api/chores/all')
-        .then(function(chores) {
-          var choresObj = {};
+      return Chore.all(function(chores) {
+        return chores;
+      });
+    };
 
-          for (var i = 0; i < chores.data.length; i++) {
-            var chore = chores.data[i],
-              choreName = chore.chore;
-
-            if (!choresObj[choreName]) choresObj[choreName] = [];
-
-            if (choresObj[choreName].indexOf(chore.day) < 0) {
-              choresObj[choreName].push(chore.day);
-            }
-          }
-          return choresObj;
-        });
+    var newChore = function () {
+      return new Chore();
     };
 
     return {
       getChores: getChores,
       getAllChores: getAllChores,
-      allChores: getAllChores()
+      newChore: newChore
     };
   }
 }());
