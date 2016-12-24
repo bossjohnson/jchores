@@ -1,9 +1,9 @@
 (function() {
   app.controller('ChoresCtrl', ChoresCtrl);
 
-  ChoresCtrl.$inject = ['$scope', '$http', 'ChoresService', 'DateService', '$resource'];
+  ChoresCtrl.$inject = ['$scope', '$http', 'ChoresService', 'DateService', '$resource', '$timeout'];
 
-  function ChoresCtrl($scope, $http, ChoresService, DateService, $resource) {
+  function ChoresCtrl($scope, $http, ChoresService, DateService, $resource, $timeout) {
     var vm = this;
 
     vm.view = {
@@ -42,6 +42,10 @@
       var chore = ChoresService.newChore();
       chore.$save();
       vm.allChores.push(chore);
+      $timeout(function() {
+        var inputs = document.getElementsByTagName('input');
+        angular.element(inputs[inputs.length - 1]).focus();
+      });
     };
 
     vm.deleteChore = function(chore) {
