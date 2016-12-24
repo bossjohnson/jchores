@@ -9,7 +9,6 @@
     vm.view = {
       addNewChore: false
     };
-    vm.chores = [];
 
     vm.days = DateService.days;
     vm.today = DateService.today;
@@ -17,6 +16,7 @@
     vm.monthName = DateService.monthName;
 
 
+    vm.chores = ChoresService.getDailyChores();
     vm.allChores = ChoresService.getAllChores();
 
     vm.finish = function(chore) {
@@ -31,6 +31,7 @@
 
       if (index < 0) {
         chore.days.push(day);
+        chore.finished = new Date(0);
       } else {
         chore.days.splice(index, 1);
       }

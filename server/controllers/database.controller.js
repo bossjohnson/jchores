@@ -4,19 +4,17 @@ var mongoose = require('mongoose'),
   Chore = require('../db/mongo/schema/chores');
 
 exports.getDailyChores = function(req, res) {
-  var day = req.params.day;
+  var day = req.query.day,
+    today = new Date(),
+    yesterday = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 1);
 
   Chore.find({
       days: {
         $in: [day]
       },
-      $or: [{
-        finished: {
-          $exists: false
-        }
-      }, {
-        finished: false
-      }]
+      finished: {
+        $lt: yesterday
+      }
     },
     function(err, chores) {
       if (err) {

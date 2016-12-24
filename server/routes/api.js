@@ -6,6 +6,7 @@ router.get('/chores/all', database.getAllChores);
 router.get('/chores/daily/:day', database.getDailyChores);
 
 router.route('/chores')
+  .get(database.getDailyChores)
   .post(database.saveChore)
   .delete(database.deleteChore);
 

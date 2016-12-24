@@ -7,7 +7,7 @@
   function ChoresService($http, DateService, ChoresResource) {
     var Chore = ChoresResource;
 
-    var getChores = function() {
+    var getDailyChores = function() {
       return Chore.query(function(chores) {
         return chores;
       });
@@ -24,7 +24,7 @@
     };
 
     return {
-      getChores: getChores,
+      getDailyChores: getDailyChores,
       getAllChores: getAllChores,
       newChore: newChore
     };
