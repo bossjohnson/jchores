@@ -1,16 +1,18 @@
 (function() {
   app.controller('CalendarCtrl', CalendarCtrl);
 
-  CalendarCtrl.$inject = ['$scope', 'DateService', '$mdDialog'];
+  CalendarCtrl.$inject = ['$scope', 'DateService', '$mdDialog', 'TasksResource'];
 
-  function CalendarCtrl($scope, DateService, $mdDialog) {
-    var vm = this;
+  function CalendarCtrl($scope, DateService, $mdDialog, TasksResource) {
+    var vm = this,
+      Task = TasksResource;
 
     vm.days = DateService.days;
     vm.monthName = DateService.monthName;
     vm.todaysDate = DateService.todaysDate;
     vm.daysInMonth = DateService.daysInMonth;
     vm.rows = DateService.calendarRows;
+    vm.tasks = Task.query();
 
     vm.openDialog = function(day, row) {
       var clickedDay = document.querySelectorAll('.calendar-day')[day - 1];
@@ -30,6 +32,16 @@
         $scope.clicked = vm.days[index];
         $scope.monthName = vm.monthName;
         $scope.date = day;
+        $scope.task = {};
+        $scope._date = DateService.daysInMonth[day - 1];
+
+        $scope.addTask = function() {
+          var task = new Task();
+          task.name = $scope.task.name;
+          task.date = $scope._date;
+          console.log('task:', task);
+          task.$save();
+        };
       }
     };
   }

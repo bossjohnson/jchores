@@ -10,5 +10,9 @@ router.route('/chores')
   .post(database.saveChore)
   .delete(database.deleteChore);
 
+router.route('/tasks')
+  .get(database.getTasks)
+  .post(database.saveTask);
+
 
 module.exports = router;

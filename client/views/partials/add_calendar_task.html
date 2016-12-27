@@ -7,9 +7,9 @@
   <md-dialog-content class="md-dialog-content">
     <form layout="column">
       <md-input-container>
-        <input type="text" placeholder="Task">
+        <input type="text" placeholder="Task" ng-model="task.name">
       </md-input-container>
-      <md-button class="md-raised md-primary">
+      <md-button class="md-raised md-primary" ng-click="addTask()">
         Add Task
       </md-button>
     </form>

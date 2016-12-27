@@ -3,6 +3,9 @@ var mongoose = require('mongoose'),
   Task = require('../db/mongo/schema/tasks'),
   Chore = require('../db/mongo/schema/chores');
 
+// ******
+// Chores
+// ******
 exports.getDailyChores = function(req, res) {
   var day = req.query.day,
     today = new Date(),
@@ -55,3 +58,18 @@ exports.deleteChore = function(req, res) {
     } else res.status(200).send();
   });
 };
+
+// *****
+// Tasks
+// *****
+exports.getTasks = function(req, res) {
+  Task.find(function (err, tasks) {
+    console.log('tasks:', tasks);
+    res.status(200).send();
+  });
+};
+
+exports.saveTask = function(req, res) {
+  var task = new Task(req.body);
+  task.save();
+}

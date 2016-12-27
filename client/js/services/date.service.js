@@ -38,7 +38,7 @@
       daysInMonth = [];
 
     for (var i = 1; i <= numberOfDays; i++) {
-      daysInMonth.push(i);
+      daysInMonth.push(new Date(year, month, i));
     }
 
     var calendarRows = [],
