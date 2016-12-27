@@ -13,8 +13,17 @@
     vm.daysInMonth = DateService.daysInMonth;
     vm.rows = DateService.calendarRows;
     vm.tasks = Task.query();
+    vm.taskDates = [];
 
-    vm.openDialog = function(day, row) {
+    vm.tasks.$promise.then(function() {
+      for (var i = 0; i < vm.tasks.length; i++) {
+        var task = vm.tasks[i],
+          taskDate = new Date(task.date).getDate();
+        vm.taskDates.push(taskDate);
+      }
+    });
+
+    vm.openDialog = function(day, row, tasks) {
       var clickedDay = document.querySelectorAll('.calendar-day')[day - 1];
 
       $mdDialog.show({
@@ -34,11 +43,24 @@
         $scope.date = day;
         $scope._date = DateService.daysInMonth[day - 1];
         $scope.task = {};
+        $scope.tasks = [];
+
+        for (var i = 0; i < tasks.length; i++) {
+          var task = tasks[i],
+            taskDate = new Date(task.date).getDate();
+          if (taskDate === day) {
+            $scope.tasks.push(task);
+          }
+        }
 
         $scope.addTask = function() {
           var task = new Task();
           task.name = $scope.task.name;
           task.date = $scope._date;
+          vm.taskDates.push(new Date(task.date).getDate());
+          vm.tasks.push(task);
+          $scope.tasks.push(task);
+          $scope.task = {};
           task.$save();
         };
       }

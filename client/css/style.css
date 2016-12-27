@@ -107,4 +107,7 @@ body {
     .animated-view.ng-leave.slide-left {
       animation: slideOutRight .5s; }
 
+.task-scheduled {
+  background-color: #fac478; }
+
 /*# sourceMappingURL=style.css.map */

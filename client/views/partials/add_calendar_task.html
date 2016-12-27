@@ -5,6 +5,12 @@
   </md-toolbar>
 
   <md-dialog-content class="md-dialog-content">
+    <ul>
+      <li ng-repeat="task in tasks">
+        <h3>{{task.name}}</h3>
+      </li>
+    </ul>
+
     <form layout="column">
       <md-input-container>
         <input type="text" placeholder="Task" ng-model="task.name">

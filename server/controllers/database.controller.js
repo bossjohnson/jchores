@@ -63,8 +63,7 @@ exports.deleteChore = function(req, res) {
 // Tasks
 // *****
 exports.getTasks = function(req, res) {
-  Task.find(function (err, tasks) {
-    console.log('tasks:', tasks);
+  Task.find(function(err, tasks) {
     res.status(200).send(tasks);
   });
 };
@@ -72,4 +71,4 @@ exports.getTasks = function(req, res) {
 exports.saveTask = function(req, res) {
   var task = new Task(req.body);
   task.save();
-}
+};
