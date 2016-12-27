@@ -4,6 +4,9 @@
   TasksResource.$inject = ['$resource'];
 
   function TasksResource($resource, DateService) {
-    return $resource('/api/tasks');
+    var defaultParams = {
+      taskId: '@_id'
+    };
+    return $resource('/api/tasks', defaultParams);
   }
 }());

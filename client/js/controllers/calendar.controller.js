@@ -61,7 +61,19 @@
           vm.tasks.push(task);
           $scope.tasks.push(task);
           $scope.task = {};
-          task.$save();
+          task.$save().then(function(saved) {
+            task._id = saved._id;
+          });
+        };
+
+        $scope.deleteTask = function(task) {
+          task.$delete();
+          var index = $scope.tasks.indexOf(task);
+          $scope.tasks.splice(index, 1);
+          index = vm.taskDates.indexOf(new Date(task.date).getDate());
+          vm.taskDates.splice(index, 1);
+          index = vm.tasks.indexOf(task);
+          vm.tasks.splice(index, 1);
         };
       }
     };

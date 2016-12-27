@@ -6,8 +6,11 @@
 
   <md-dialog-content class="md-dialog-content">
     <ul>
-      <li ng-repeat="task in tasks">
-        <h3>{{task.name}}</h3>
+      <li ng-repeat="task in tasks" layout="row" layout-aling="start center">
+        <md-button class="md-fab md-mini md-warn" ng-click="deleteTask(task)" aria-label="Delete Task">
+          <md-icon md-svg-icon="../img/icons/delete_forever_white.svg"></md-icon>
+        </md-button>
+        <span layout="row" layout-align="center center">{{task.name}}</span>
       </li>
     </ul>
 

@@ -70,5 +70,23 @@ exports.getTasks = function(req, res) {
 
 exports.saveTask = function(req, res) {
   var task = new Task(req.body);
-  task.save();
+  task.save(function(err, saved) {
+    if (err) {
+      console.error(err);
+      res.status(500).send(err);
+    } else {
+      res.status(200).json(saved);
+    }
+  });
+};
+
+exports.deleteTask = function(req, res) {
+  Task.findByIdAndRemove(req.query.taskId, function(err, deleted) {
+    if (err) {
+      console.error(err);
+      res.status(500).send(err);
+    } else {
+      res.status(200).send();
+    }
+  });
 };
