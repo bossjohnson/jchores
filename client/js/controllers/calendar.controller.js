@@ -32,14 +32,13 @@
         $scope.clicked = vm.days[index];
         $scope.monthName = vm.monthName;
         $scope.date = day;
-        $scope.task = {};
         $scope._date = DateService.daysInMonth[day - 1];
+        $scope.task = {};
 
         $scope.addTask = function() {
           var task = new Task();
           task.name = $scope.task.name;
           task.date = $scope._date;
-          console.log('task:', task);
           task.$save();
         };
       }

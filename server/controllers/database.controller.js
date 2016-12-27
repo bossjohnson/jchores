@@ -65,7 +65,7 @@ exports.deleteChore = function(req, res) {
 exports.getTasks = function(req, res) {
   Task.find(function (err, tasks) {
     console.log('tasks:', tasks);
-    res.status(200).send();
+    res.status(200).send(tasks);
   });
 };
 

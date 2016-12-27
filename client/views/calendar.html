@@ -9,14 +9,15 @@
       </tr>
       <tr>
         <th ng-repeat="day in Calendar.days">
-          <span class="calendar-day-name">{{day | capitalize}}</span>
+          <span class="calendar-day-name" hide-xs hide-sm>{{day | capitalize}}</span>
+          <span class="calendar-day-name" hide-gt-sm>{{day.slice(0, 2) | capitalize}}</span>
         </th>
       </tr>
     </thead>
     <tbody>
       <tr ng-repeat="row in Calendar.rows">
-        <td ng-repeat="day in row track by $index" ng-class="{today: day === Calendar.todaysDate, 'calendar-day': day}"
-            ng-click="Calendar.openDialog(day, row)">
+        <td ng-repeat="day in row track by $index" ng-click="Calendar.openDialog(day, row)"
+            ng-class="{today: day === Calendar.todaysDate, 'calendar-day': day}">
           {{day}}
         </td>
       </tr>
